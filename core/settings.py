@@ -100,12 +100,22 @@ USE_L10N = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Media Files
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD: str = 'django.db.models.BigAutoField'
 
 # Superuser credentials for creating it.
 
-SUPERUSER_USERNAME = os.getenv("SUPERUSER_USERNAME")
-SUPERUSER_PASSWORD = os.getenv("SUPERUSER_PASSWORD")
-SUPERUSER_MAIL = os.getenv("SUPERUSER_MAIL")
+SUPERUSER_USERNAME: str = os.getenv("SUPERUSER_USERNAME")
+SUPERUSER_PASSWORD: str = os.getenv("SUPERUSER_PASSWORD")
+SUPERUSER_MAIL: str = os.getenv("SUPERUSER_MAIL")
+
+# Celery
+
+CELERY_BROKER_URL: str = os.getenv("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND: str = os.getenv("CELERY_RESULT_BACKEND")
